@@ -3,3 +3,12 @@
 # Manually managing azure-functions-worker may cause unexpected issues
 
 azure-functions
+requests
+python-pptx
+argparse
+pandas
+numpy
+datetime
+msal
+azure-identity
+azure-keyvault-secrets
