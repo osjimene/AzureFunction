@@ -1,5 +1,7 @@
 import azure.functions as func
 
+#This takes the parameter input and createst the proper variables for API calling ADO. 
+
 def RZ_Selector(RedZone):
 
     if RedZone == 'M365':
