@@ -12,12 +12,12 @@ from pandas.io.json import json_normalize
 import dateutil.parser
 from pptx.dml.color import RGBColor
 import os
-from TestFunction.ADO_Pull import API_Pull
-from TestFunction.Authenticate import getcredentials
-from TestFunction.RZ_Selector import RZ_Selector
-from TestFunction.create_ppt import create_ppt
+from script.ADO_Pull import API_Pull
+from script.Authenticate import getcredentials
+from script.RZ_Selector import RZ_Selector
+from script.create_ppt import create_ppt
 
-from TestFunction.putfile import putfile 
+from script.putfile import putfile 
 from .GetProfile import userinfo
 from .readDrive import readDrive
 
@@ -29,7 +29,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
     #List makes sure that the only Parameters accepted by the API are the ones below.     
     RZList = ['M365','Azure','EMM','Identity','Power','PBI','SDP','MIP','D365','Commerce']
-    #Checks for the declared paremeter in the Function URL e.g. Localhost.api/TestFunction?RedZone=MIP
+    #Checks for the declared paremeter in the Function URL e.g. Localhost.api/script?RedZone=MIP
     RedZone = req.params.get('RedZone')
     User = req.params.get('User')
     #Just a test function to make sure I know where the onedrive/AAD information is pulling from and storing into. 
