@@ -2,6 +2,8 @@ from datetime import datetime, timedelta, timezone
 from azure.storage.blob import BlobClient, BlobSasPermissions, generate_blob_sas
 import os
 
+#This script uploads the generated presentation and returns a Sas URL that is timed for 1 hour to access. 
+
 def upload_file_to_storage(presentationfile,filename):
     blob_client = BlobClient.from_connection_string(conn_str=os.environ['FileAccountConnection'], container_name=os.environ['FileContainer'], blob_name=filename)
 
