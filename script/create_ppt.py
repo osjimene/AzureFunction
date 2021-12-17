@@ -9,7 +9,7 @@ import os
 def create_ppt(outfilename, data, RZTitle):
     dir = os.path.dirname(__file__)
     PPTXTemplate = os.path.join(dir, 'RedZoneInput.pptx')
-    outfilepath = os.path.join(dir,outfilename)
+    outfilepath = os.environ["LocalTempFilePath"] + f" {outfilename}"
     
     """ Take the input powerpoint file and use it as the template for the output
     file.
@@ -152,3 +152,4 @@ def create_ppt(outfilename, data, RZTitle):
         dataSlide += 1
 
     prs.save(outfilepath)
+    return outfilepath
