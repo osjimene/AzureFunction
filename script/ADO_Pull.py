@@ -5,6 +5,7 @@ from requests.auth import HTTPBasicAuth
 from collections import defaultdict
 import dateutil.parser
 
+#Used to pull the ADO information via an API call and turn it into a Pandas DataFrame
 
 def API_Pull(RZTag):
     ALIAS = os.environ['USER_ALIAS']
