@@ -4,7 +4,7 @@ from datetime import date
 from pptx.dml.color import RGBColor
 import os
 
-
+#Used to generate the powerpoint based on the ADO dataframe
 
 def create_ppt(outfilename, data, RZTitle):
     dir = os.path.dirname(__file__)
