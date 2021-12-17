@@ -1,6 +1,7 @@
 from msal import PublicClientApplication
 import os
 
+#Not used in script but used it to authenticate using AAD if necessary
 def getcredentials():
     Scope= ["Files.ReadWrite"]
     app = PublicClientApplication(
