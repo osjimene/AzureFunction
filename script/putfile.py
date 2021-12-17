@@ -1,6 +1,8 @@
 import requests
 import os
 
+#Not used in main script. Used for testing upload to Onedrive Functionality. 
+
 def putfile(secretkey,filename):
     dir = os.path.dirname(__file__)
     file = os.path.join(dir, filename)
