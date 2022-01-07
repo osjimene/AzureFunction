@@ -28,6 +28,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         try: 
             logging.info("Attempting to get parameters via the API Request body...")
             req_body = req.get_json()
+            logging.info("Attempting to parse out the RedZone from the json body...")
+            RedZone = req_body.get('RedZone')
+            logging.info(f"successfully grabbed the body request [{RedZone}] from the request body... ")
         except ValueError:
             pass
         else:
