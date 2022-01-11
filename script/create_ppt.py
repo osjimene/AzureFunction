@@ -82,6 +82,15 @@ def create_ppt(outfilename, data, RZTitle):
             table.cell(0, cols).text_frame.paragraphs[0].font.size = Pt(12)
             table.cell(0, cols).text_frame.paragraphs[0].font.bold = True
             table.cell(0, cols).text_frame.paragraphs[0].font.name = 'Segoe UI (Body)'
+        rows = [x for x in range(1,8)]
+       #Adjust the font size on the MSD Owner Column 
+        for row in rows:
+            table.cell(row, 4).text_frame.paragraphs[0].font.size = Pt(8)
+            table.cell(row, 4).text_frame.paragraphs[0].font.bold = True
+        #Adjust the font size on the PG Owner column
+        for row in rows:
+            table.cell(row, 6).text_frame.paragraphs[0].font.size = Pt(8)
+            table.cell(row, 6).text_frame.paragraphs[0].font.name = 'Segoe UI (Body)'
         slide_start += 1
         #Insert the moveable icons into the slides. 
         refresh = slide.shapes.add_picture(refreshIcon, left=Inches(6.98), top=Inches(0.08),height=Inches(0.17), width = Inches(0.23))
@@ -151,6 +160,15 @@ def create_ppt(outfilename, data, RZTitle):
                     table[0].table.cell(rows,cols).text = str(slidedata.iloc[redzoneRow, cols]) 
                     table[0].table.cell(rows,cols).text_frame.paragraphs[0].font.size = Pt(12)
                     table[0].table.cell(rows,cols).text_frame.paragraphs[0].font.name = 'Segoe UI (Body)'
+                #Adjust the font size on the MSD Owner Column 
+                table[0].table.cell(rows, 4).text_frame.paragraphs[0].font.size = Pt(8)
+                table[0].table.cell(rows, 4).text_frame.paragraphs[0].font.name = 'Segoe UI (Body)'
+                #Adjust the font size on the PGADO Column 
+                table[0].table.cell(rows, 5).text_frame.paragraphs[0].font.size = Pt(8)
+                table[0].table.cell(rows, 5).text_frame.paragraphs[0].font.name = 'Segoe UI (Body)'
+                #Adjust the font size on the PG Owner column         
+                table[0].table.cell(rows, 6).text_frame.paragraphs[0].font.size = Pt(8)
+                table[0].table.cell(rows, 6).text_frame.paragraphs[0].font.name = 'Segoe UI (Body)'
             redzoneRow += 1
             if redzoneRow >= rz_items:
                 break
