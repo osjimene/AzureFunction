@@ -10,6 +10,9 @@ def create_ppt(outfilename, data, RZTitle):
     dir = os.path.dirname(__file__)
     PPTXTemplate = os.path.join(dir, 'RedZoneInput.pptx')
     outfilepath = os.environ["LocalTempFilePath"] + f" {outfilename}"
+    exlaimationIcon = os.path.join(dir, "Exlaimation.jpg")
+    refreshIcon = os.path.join(dir, "Refresh.jpg")
+    resourceIcon = os.path.join(dir, "Resource.jpg")
     
     """ Take the input powerpoint file and use it as the template for the output
     file.
@@ -80,6 +83,8 @@ def create_ppt(outfilename, data, RZTitle):
             table.cell(0, cols).text_frame.paragraphs[0].font.bold = True
             table.cell(0, cols).text_frame.paragraphs[0].font.name = 'Segoe UI (Body)'
         slide_start += 1
+        #Insert the moveable icons into the slides. 
+        
     #Insert values into the table.
     dataSlide = 1
     redzoneRow = 0
