@@ -25,6 +25,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     RZList = ['M365','Azure','EMM','Identity','Power','PBI','SDP','MIP','D365','Commerce']
     #Checks for the declared paremeter in the Function URL e.g. Localhost.api/script?RedZone=MIP
     RedZone = req.params.get('RedZone')
+    
     #Checks the body of the API request in case the value is sent through the body via JSON
     if not RedZone:
         try: 
@@ -53,14 +54,14 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         data = API_Pull(RZTag)
         #This formats the filename to an appropriate format that can be tracked by date
         logging.info("Naming file...")
-        outfilename = str((RZTitle)+" {:%B %Y}.pptx".format(date.today()))
+        outfilename = str((RZTitle)+" {:%B %Y %H_%M_%S}.pptx".format(date.today()))
         logging.info(f"File named {outfilename} ...")
         #Function that will create the powerpoint presentation based on the HHTP parameters in the URL
         presentationfile = create_ppt(outfilename, data, RZTitle)
         #Function that will upload this generated file into blob storage and then return a temporary URL that the requestor can use. 
-        # blob_sas_url = upload_file_to_storage(presentationfile, outfilename)
-        # message = " File created and uploaded to storage. You can <a href='" + blob_sas_url + "'>download it </a> for the next 1 hour."
-        putfile(presentationfile,outfilename)
+        blob_sas_url = upload_file_to_storage(presentationfile, outfilename)
+        message = " File created and uploaded to storage. You can <a href='" + blob_sas_url + "'>download it </a> for the next 1 hour."
+        # message = putfile(presentationfile,outfilename)
 
         
         
