@@ -40,11 +40,11 @@ def create_ppt(outfilename, data, RZTitle):
         redzone_item_layout = prs.slide_layouts[5]
         slide = prs.slides.add_slide(redzone_item_layout)
         shapes = slide.shapes
-        shapes.title.text = 'RedZone Items'
+        # shapes.title.text = 'RedZone Items'
         #Set the Table dimensions in the slide
         rows = cols = 8
         left = Inches(0)
-        top = Inches(0.82)
+        top = Inches(1.12)
         width = Inches(13.33)
         height = Inches(6.69)
         table = shapes.add_table(rows, cols, left, top, width, height).table
@@ -94,9 +94,9 @@ def create_ppt(outfilename, data, RZTitle):
             table.cell(row, 6).text_frame.paragraphs[0].font.name = 'Segoe UI (Body)'
         slide_start += 1
         #Insert the moveable icons into the slides. 
-        refresh = slide.shapes.add_picture(refreshIcon, left=Inches(6.98), top=Inches(0.08),height=Inches(0.17), width = Inches(0.23))
-        exclaimation = slide.shapes.add_picture(exlaimIcon, left=Inches(7.07), top=Inches(0.34),height=Inches(0.28), width = Inches(0.05))
-        resource = slide.shapes.add_picture(resourceIcon, left=Inches(5.73), top=Inches(0.03),height=Inches(0.27), width = Inches(0.26))
+        refresh = slide.shapes.add_picture(refreshIcon, left=Inches(6.98), top=Inches(0.45),height=Inches(0.17), width = Inches(0.23))
+        exclaimation = slide.shapes.add_picture(exlaimIcon, left=Inches(7.07), top=Inches(0.71),height=Inches(0.28), width = Inches(0.05))
+        resource = slide.shapes.add_picture(resourceIcon, left=Inches(5.74), top=Inches(0.4),height=Inches(0.27), width = Inches(0.26))
     #Insert values into the table.
     dataSlide = 1
     redzoneRow = 0

@@ -1,7 +1,7 @@
 #These are all the requirements in case they dont come up on requirements.txt 
 import logging
 import pandas as pd
-from datetime import date
+from datetime import datetime
 from script import upload
 from script.ADO_Pull import API_Pull
 from script.create_ppt import create_ppt
@@ -54,7 +54,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         data = API_Pull(RZTag)
         #This formats the filename to an appropriate format that can be tracked by date
         logging.info("Naming file...")
-        outfilename = str((RZTitle)+" {:%B %Y %H_%M_%S}.pptx".format(date.today()))
+        outfilename = str((RZTitle)+" {:%B %Y %H%M%S}.pptx".format(datetime.now()))
         logging.info(f"File named {outfilename} ...")
         #Function that will create the powerpoint presentation based on the HHTP parameters in the URL
         presentationfile = create_ppt(outfilename, data, RZTitle)
